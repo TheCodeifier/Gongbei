@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 abstract class Payment {
-    public final void Payment() {
+    public final void pay() {
         verifyCustomerData();
         executePayment();
         showConfirmation();
@@ -66,28 +66,8 @@ class PayPal extends Payment {
 class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Kies een methode om te betalen: iDeal, Creditcard of PayPal");
-        String choice = scanner.nextLine().toLowerCase();
-
-        MessageSender sender;
-
-        switch (choice) {
-            case "iDeal":
-                sender = new iDeal();
-                break;
-            case "Creditcard":
-                sender = new Creditcard();
-                break;
-            case "PayPal":
-                sender = new Creditcard();
-                break;
-            default:
-                System.out.println("Ongeldige keuze.");
-                scanner.close();
-                return;
-        }
-
-        sender.pay();
-        scanner.close();
+        System.out.println("Kies een methode om te betalen (iDeal, Creditcard of PayPal):");
+      
+            
     }
 }
